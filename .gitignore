@@ -1,0 +1,10 @@
+# SQL Server files
+*.mdf
+*.ldf
+/packages
+/Amanet/My Project
+/Amanet/obj/Debug
+/Amanet/obj
+/Amanet/bin
+/packages/
+*.suo
