@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{423EA089-FED5-4EE1-8074-0DEEFADBA488}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Amanet</RootNamespace>
+    <AssemblyName>Amanet</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>D:\Amanet kit\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>9</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>amanet_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>EB9804829EFF5742B830A4D6A36AF6569E76CC4D</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Amanet_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 12.0\ReportViewer\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AmanetDataSet.cs">
+      <DependentUpon>AmanetDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AmanetDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AmanetDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AmanetEntities.cs" />
+    <Compile Include="AmanetModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AmanetModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AmanetModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AmanetModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AmanetModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AmanetModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Calitati.cs">
+      <DependentUpon>AmanetModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="claseDB.cs" />
+    <Compile Include="Clienti.cs">
+      <DependentUpon>AmanetModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContracteAntet.cs">
+      <DependentUpon>AmanetModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContracteProduse.cs">
+      <DependentUpon>AmanetModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="frmCalitati.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCalitati.Designer.cs">
+      <DependentUpon>frmCalitati.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmClienti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmClienti.Designer.cs">
+      <DependentUpon>frmClienti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmContractAdaugare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmContractAdaugare.Designer.cs">
+      <DependentUpon>frmContractAdaugare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmContracte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmContracte.Designer.cs">
+      <DependentUpon>frmContracte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmContractFinalizare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmContractFinalizare.Designer.cs">
+      <DependentUpon>frmContractFinalizare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNomenclatoare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNomenclatoare.Designer.cs">
+      <DependentUpon>frmNomenclatoare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrintContract.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrintContract.Designer.cs">
+      <DependentUpon>frmPrintContract.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrintSituatieInventar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrintSituatieInventar.Designer.cs">
+      <DependentUpon>frmPrintSituatieInventar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrintSituatieScadente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrintSituatieScadente.Designer.cs">
+      <DependentUpon>frmPrintSituatieScadente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProduse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProduse.Designer.cs">
+      <DependentUpon>frmProduse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="functiiDB.cs" />
+    <Compile Include="global.cs" />
+    <Compile Include="lstPrintareContract.cs">
+      <DependentUpon>AmanetModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Produse.cs">
+      <DependentUpon>AmanetModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmCalitati.resx">
+      <DependentUpon>frmCalitati.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmClienti.resx">
+      <DependentUpon>frmClienti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmContractAdaugare.resx">
+      <DependentUpon>frmContractAdaugare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmContracte.resx">
+      <DependentUpon>frmContracte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmContractFinalizare.resx">
+      <DependentUpon>frmContractFinalizare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNomenclatoare.resx">
+      <DependentUpon>frmNomenclatoare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrintContract.resx">
+      <DependentUpon>frmPrintContract.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrintSituatieInventar.resx">
+      <DependentUpon>frmPrintSituatieInventar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrintSituatieScadente.resx">
+      <DependentUpon>frmPrintSituatieScadente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProduse.resx">
+      <DependentUpon>frmProduse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptPrintareContract.rdlc" />
+    <EmbeddedResource Include="rptSituatieInventar.rdlc" />
+    <EmbeddedResource Include="rptSituatieScadente.rdlc" />
+    <EntityDeploy Include="AmanetModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AmanetModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="AmanetDataSet.xsc">
+      <DependentUpon>AmanetDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AmanetDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AmanetDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AmanetDataSet.xss">
+      <DependentUpon>AmanetDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AmanetModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AmanetModel.edmx</DependentUpon>
+      <LastGenOutput>AmanetModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="AmanetModel.edmx.diagram">
+      <DependentUpon>AmanetModel.edmx</DependentUpon>
+    </None>
+    <None Include="AmanetModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AmanetModel.edmx</DependentUpon>
+      <LastGenOutput>AmanetModel.cs</LastGenOutput>
+    </None>
+    <None Include="Amanet_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\claseDB.ContracteView.datasource" />
+    <None Include="Properties\DataSources\claseDB.SituatieScadente.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\metaloader.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="amanet_icon.ico" />
+    <None Include="Resources\amanet_inel_mov.png" />
+    <None Include="Resources\amanet_background1.png" />
+    <None Include="Resources\amanet_background.png" />
+    <None Include="Resources\amanet_sigla.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

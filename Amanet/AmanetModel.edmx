@@ -1,0 +1,556 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AmanetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Calitati">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="denumire" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="creatLa" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="modificatLa" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="inactiv" Type="bit" Nullable="false" />
+          <Property Name="lockVersion" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clienti">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nume" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="prenume" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="domiciliul" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="ciSerie" Type="nvarchar" MaxLength="2" />
+          <Property Name="ciNumar" Type="nvarchar" MaxLength="6" />
+          <Property Name="ciEliberatDe" Type="nvarchar" MaxLength="20" />
+          <Property Name="ciEliberatLa" Type="datetime2" Precision="7" />
+          <Property Name="telefon" Type="nvarchar" MaxLength="20" />
+          <Property Name="creatLa" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="modificatLa" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="inactiv" Type="bit" Nullable="false" />
+          <Property Name="lockVersion" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContracteAntet">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nrContract" Type="int" Nullable="false" />
+          <Property Name="dataContract" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="idClient" Type="int" Nullable="false" />
+          <Property Name="valoareCredit" Type="decimal" Precision="15" Scale="6" />
+          <Property Name="comisionProcZi" Type="decimal" Precision="8" Scale="4" />
+          <Property Name="valoareCreditZi" Type="decimal" Precision="15" Scale="6" />
+          <Property Name="valoareDebit" Type="decimal" Precision="15" Scale="6" />
+          <Property Name="nrZile" Type="int" />
+          <Property Name="dataScadenta" Type="datetime2" Precision="7" />
+          <Property Name="stareContract" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="observatii" Type="nvarchar" MaxLength="500" />
+          <Property Name="creatLa" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="modificatLa" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="inactiv" Type="bit" Nullable="false" />
+          <Property Name="lockVersion" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContracteProduse">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idContract" Type="int" Nullable="false" />
+          <Property Name="idProdus" Type="int" Nullable="false" />
+          <Property Name="idCalitate" Type="int" Nullable="false" />
+          <Property Name="bucati" Type="int" Nullable="false" />
+          <Property Name="descriere" Type="nvarchar" MaxLength="250" />
+          <Property Name="gramajPiesa" Type="decimal" Precision="15" Scale="6" />
+          <Property Name="gramajAur" Type="decimal" Precision="15" Scale="6" />
+          <Property Name="creatLa" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="modificatLa" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="inactiv" Type="bit" Nullable="false" />
+          <Property Name="lockVersion" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Amanet.dbo.lstPrintareContract' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="lstPrintareContract">
+          <Key>
+            <PropertyRef Name="NumarContract" />
+            <PropertyRef Name="DataContract" />
+            <PropertyRef Name="NumePrenume" />
+            <PropertyRef Name="Domiciliul" />
+            <PropertyRef Name="Denumire" />
+            <PropertyRef Name="Bucati" />
+            <PropertyRef Name="Calitate" />
+          </Key>
+          <Property Name="NumarContract" Type="int" Nullable="false" />
+          <Property Name="DataContract" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="NumePrenume" Type="nvarchar" MaxLength="101" Nullable="false" />
+          <Property Name="Domiciliul" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="SerieCI" Type="nvarchar" MaxLength="2" />
+          <Property Name="NumarCI" Type="nvarchar" MaxLength="6" />
+          <Property Name="EliberatDe" Type="nvarchar" MaxLength="20" />
+          <Property Name="EliberatLa" Type="datetime2" Precision="7" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="20" />
+          <Property Name="Denumire" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Bucati" Type="int" Nullable="false" />
+          <Property Name="Descriere" Type="nvarchar" MaxLength="250" />
+          <Property Name="GramajPiesa" Type="decimal" Precision="15" Scale="6" />
+          <Property Name="GramajAur" Type="decimal" Precision="15" Scale="6" />
+          <Property Name="Calitate" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="ValoareCredit" Type="decimal" Precision="15" Scale="6" />
+          <Property Name="ComisionProcZi" Type="decimal" Precision="8" Scale="4" />
+          <Property Name="ValoareComisionZi" Type="decimal" Precision="15" Scale="6" />
+          <Property Name="ValoareDebit" Type="decimal" Precision="15" Scale="6" />
+          <Property Name="NrZileImprumut" Type="int" />
+          <Property Name="DataScadenta" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="Produse">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="denumire" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="creatLa" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="modificatLa" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="inactiv" Type="bit" Nullable="false" />
+          <Property Name="lockVersion" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Contracte_Clienti">
+          <End Role="Clienti" Type="Self.Clienti" Multiplicity="1" />
+          <End Role="ContracteAntet" Type="Self.ContracteAntet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clienti">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ContracteAntet">
+              <PropertyRef Name="idClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContracteProduse_Calitati">
+          <End Role="Calitati" Type="Self.Calitati" Multiplicity="1" />
+          <End Role="ContracteProduse" Type="Self.ContracteProduse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Calitati">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ContracteProduse">
+              <PropertyRef Name="idCalitate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContracteProduse_ContracteAntet">
+          <End Role="ContracteAntet" Type="Self.ContracteAntet" Multiplicity="1" />
+          <End Role="ContracteProduse" Type="Self.ContracteProduse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContracteAntet">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ContracteProduse">
+              <PropertyRef Name="idContract" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContracteProduse_Produse">
+          <End Role="Produse" Type="Self.Produse" Multiplicity="1" />
+          <End Role="ContracteProduse" Type="Self.ContracteProduse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produse">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ContracteProduse">
+              <PropertyRef Name="idProdus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="PROC_RptPrintareContract" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idContract" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="AmanetModelStoreContainer">
+          <EntitySet Name="Calitati" EntityType="Self.Calitati" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clienti" EntityType="Self.Clienti" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContracteAntet" EntityType="Self.ContracteAntet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContracteProduse" EntityType="Self.ContracteProduse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Produse" EntityType="Self.Produse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lstPrintareContract" EntityType="Self.lstPrintareContract" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [lstPrintareContract].[NumarContract] AS [NumarContract], 
+    [lstPrintareContract].[DataContract] AS [DataContract], 
+    [lstPrintareContract].[NumePrenume] AS [NumePrenume], 
+    [lstPrintareContract].[Domiciliul] AS [Domiciliul], 
+    [lstPrintareContract].[SerieCI] AS [SerieCI], 
+    [lstPrintareContract].[NumarCI] AS [NumarCI], 
+    [lstPrintareContract].[EliberatDe] AS [EliberatDe], 
+    [lstPrintareContract].[EliberatLa] AS [EliberatLa], 
+    [lstPrintareContract].[Telefon] AS [Telefon], 
+    [lstPrintareContract].[Denumire] AS [Denumire], 
+    [lstPrintareContract].[Bucati] AS [Bucati], 
+    [lstPrintareContract].[Descriere] AS [Descriere], 
+    [lstPrintareContract].[GramajPiesa] AS [GramajPiesa], 
+    [lstPrintareContract].[GramajAur] AS [GramajAur], 
+    [lstPrintareContract].[Calitate] AS [Calitate], 
+    [lstPrintareContract].[ValoareCredit] AS [ValoareCredit], 
+    [lstPrintareContract].[ComisionProcZi] AS [ComisionProcZi], 
+    [lstPrintareContract].[ValoareComisionZi] AS [ValoareComisionZi], 
+    [lstPrintareContract].[ValoareDebit] AS [ValoareDebit], 
+    [lstPrintareContract].[NrZileImprumut] AS [NrZileImprumut], 
+    [lstPrintareContract].[DataScadenta] AS [DataScadenta]
+    FROM [dbo].[lstPrintareContract] AS [lstPrintareContract]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Contracte_Clienti" Association="Self.FK_Contracte_Clienti">
+            <End Role="Clienti" EntitySet="Clienti" />
+            <End Role="ContracteAntet" EntitySet="ContracteAntet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContracteProduse_Calitati" Association="Self.FK_ContracteProduse_Calitati">
+            <End Role="Calitati" EntitySet="Calitati" />
+            <End Role="ContracteProduse" EntitySet="ContracteProduse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContracteProduse_ContracteAntet" Association="Self.FK_ContracteProduse_ContracteAntet">
+            <End Role="ContracteAntet" EntitySet="ContracteAntet" />
+            <End Role="ContracteProduse" EntitySet="ContracteProduse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContracteProduse_Produse" Association="Self.FK_ContracteProduse_Produse">
+            <End Role="Produse" EntitySet="Produse" />
+            <End Role="ContracteProduse" EntitySet="ContracteProduse" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AmanetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Calitati">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="denumire" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="creatLa" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="modificatLa" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="inactiv" Type="Boolean" Nullable="false" />
+          <Property Name="lockVersion" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ContracteProduses" Relationship="AmanetModel.FK_ContracteProduse_Calitati" FromRole="Calitati" ToRole="ContracteProduse" />
+        </EntityType>
+        <EntityType Name="Clienti">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nume" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="prenume" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="domiciliul" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ciSerie" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="ciNumar" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="ciEliberatDe" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ciEliberatLa" Type="DateTime" Precision="7" />
+          <Property Name="telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="creatLa" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="modificatLa" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="inactiv" Type="Boolean" Nullable="false" />
+          <Property Name="lockVersion" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ContracteAntets" Relationship="AmanetModel.FK_Contracte_Clienti" FromRole="Clienti" ToRole="ContracteAntet" />
+        </EntityType>
+        <EntityContainer Name="AmanetEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Calitatis" EntityType="Self.Calitati" />
+          <EntitySet Name="Clientis" EntityType="Self.Clienti" />
+          <EntitySet Name="ContracteProduses" EntityType="AmanetModel.ContracteProduse" />
+          <EntitySet Name="Produses" EntityType="AmanetModel.Produse" />
+          <AssociationSet Name="FK_ContracteProduse_Calitati" Association="AmanetModel.FK_ContracteProduse_Calitati">
+            <End Role="Calitati" EntitySet="Calitatis" />
+            <End Role="ContracteProduse" EntitySet="ContracteProduses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContracteProduse_Produse" Association="AmanetModel.FK_ContracteProduse_Produse">
+            <End Role="Produse" EntitySet="Produses" />
+            <End Role="ContracteProduse" EntitySet="ContracteProduses" />
+          </AssociationSet>
+          <EntitySet Name="ContracteAntets" EntityType="AmanetModel.ContracteAntet" />
+          <EntitySet Name="lstPrintareContracts" EntityType="AmanetModel.lstPrintareContract" />
+          <AssociationSet Name="FK_Contracte_Clienti" Association="AmanetModel.FK_Contracte_Clienti">
+            <End Role="Clienti" EntitySet="Clientis" />
+            <End Role="ContracteAntet" EntitySet="ContracteAntets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContracteProduse_ContracteAntet" Association="AmanetModel.FK_ContracteProduse_ContracteAntet">
+            <End Role="ContracteAntet" EntitySet="ContracteAntets" />
+            <End Role="ContracteProduse" EntitySet="ContracteProduses" />
+          </AssociationSet>
+          <FunctionImport Name="PROC_RptPrintareContract">
+            <Parameter Name="idContract" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="ContracteProduse">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idContract" Type="Int32" Nullable="false" />
+          <Property Name="idProdus" Type="Int32" Nullable="false" />
+          <Property Name="idCalitate" Type="Int32" Nullable="false" />
+          <Property Name="bucati" Type="Int32" Nullable="false" />
+          <Property Name="descriere" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="gramajPiesa" Type="Decimal" Precision="15" Scale="6" />
+          <Property Name="gramajAur" Type="Decimal" Precision="15" Scale="6" />
+          <Property Name="creatLa" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="modificatLa" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="inactiv" Type="Boolean" Nullable="false" />
+          <Property Name="lockVersion" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Calitati" Relationship="AmanetModel.FK_ContracteProduse_Calitati" FromRole="ContracteProduse" ToRole="Calitati" />
+          <NavigationProperty Name="Produse" Relationship="AmanetModel.FK_ContracteProduse_Produse" FromRole="ContracteProduse" ToRole="Produse" />
+          <NavigationProperty Name="ContracteAntet" Relationship="AmanetModel.FK_ContracteProduse_ContracteAntet" FromRole="ContracteProduse" ToRole="ContracteAntet" />
+        </EntityType>
+        <EntityType Name="Produse">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="denumire" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="creatLa" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="modificatLa" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="inactiv" Type="Boolean" Nullable="false" />
+          <Property Name="lockVersion" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ContracteProduses" Relationship="AmanetModel.FK_ContracteProduse_Produse" FromRole="Produse" ToRole="ContracteProduse" />
+        </EntityType>
+        <Association Name="FK_ContracteProduse_Calitati">
+          <End Type="AmanetModel.Calitati" Role="Calitati" Multiplicity="1" />
+          <End Type="AmanetModel.ContracteProduse" Role="ContracteProduse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Calitati">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ContracteProduse">
+              <PropertyRef Name="idCalitate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContracteProduse_Produse">
+          <End Type="AmanetModel.Produse" Role="Produse" Multiplicity="1" />
+          <End Type="AmanetModel.ContracteProduse" Role="ContracteProduse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produse">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ContracteProduse">
+              <PropertyRef Name="idProdus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ContracteAntet">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nrContract" Type="Int32" Nullable="false" />
+          <Property Name="dataContract" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="idClient" Type="Int32" Nullable="false" />
+          <Property Name="valoareCredit" Type="Decimal" Precision="15" Scale="6" />
+          <Property Name="comisionProcZi" Type="Decimal" Precision="8" Scale="4" />
+          <Property Name="valoareCreditZi" Type="Decimal" Precision="15" Scale="6" />
+          <Property Name="valoareDebit" Type="Decimal" Precision="15" Scale="6" />
+          <Property Name="nrZile" Type="Int32" />
+          <Property Name="dataScadenta" Type="DateTime" Precision="7" />
+          <Property Name="stareContract" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="observatii" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="creatLa" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="modificatLa" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="inactiv" Type="Boolean" Nullable="false" />
+          <Property Name="lockVersion" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Clienti" Relationship="AmanetModel.FK_Contracte_Clienti" FromRole="ContracteAntet" ToRole="Clienti" />
+          <NavigationProperty Name="ContracteProduses" Relationship="AmanetModel.FK_ContracteProduse_ContracteAntet" FromRole="ContracteAntet" ToRole="ContracteProduse" />
+        </EntityType>
+        <EntityType Name="lstPrintareContract">
+          <Key>
+            <PropertyRef Name="NumarContract" />
+            <PropertyRef Name="DataContract" />
+            <PropertyRef Name="NumePrenume" />
+            <PropertyRef Name="Domiciliul" />
+            <PropertyRef Name="Denumire" />
+            <PropertyRef Name="Bucati" />
+            <PropertyRef Name="Calitate" />
+          </Key>
+          <Property Name="NumarContract" Type="Int32" Nullable="false" />
+          <Property Name="DataContract" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="NumePrenume" Type="String" Nullable="false" MaxLength="101" FixedLength="false" Unicode="true" />
+          <Property Name="Domiciliul" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SerieCI" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="NumarCI" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="EliberatDe" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="EliberatLa" Type="DateTime" Precision="7" />
+          <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Denumire" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Bucati" Type="Int32" Nullable="false" />
+          <Property Name="Descriere" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="GramajPiesa" Type="Decimal" Precision="15" Scale="6" />
+          <Property Name="GramajAur" Type="Decimal" Precision="15" Scale="6" />
+          <Property Name="Calitate" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ValoareCredit" Type="Decimal" Precision="15" Scale="6" />
+          <Property Name="ComisionProcZi" Type="Decimal" Precision="8" Scale="4" />
+          <Property Name="ValoareComisionZi" Type="Decimal" Precision="15" Scale="6" />
+          <Property Name="ValoareDebit" Type="Decimal" Precision="15" Scale="6" />
+          <Property Name="NrZileImprumut" Type="Int32" />
+          <Property Name="DataScadenta" Type="DateTime" Precision="7" />
+        </EntityType>
+        <Association Name="FK_Contracte_Clienti">
+          <End Type="AmanetModel.Clienti" Role="Clienti" Multiplicity="1" />
+          <End Type="AmanetModel.ContracteAntet" Role="ContracteAntet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clienti">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ContracteAntet">
+              <PropertyRef Name="idClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContracteProduse_ContracteAntet">
+          <End Type="AmanetModel.ContracteAntet" Role="ContracteAntet" Multiplicity="1" />
+          <End Type="AmanetModel.ContracteProduse" Role="ContracteProduse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContracteAntet">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ContracteProduse">
+              <PropertyRef Name="idContract" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AmanetModelStoreContainer" CdmEntityContainer="AmanetEntities">
+          <EntitySetMapping Name="Calitatis">
+            <EntityTypeMapping TypeName="AmanetModel.Calitati">
+              <MappingFragment StoreEntitySet="Calitati">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="denumire" ColumnName="denumire" />
+                <ScalarProperty Name="creatLa" ColumnName="creatLa" />
+                <ScalarProperty Name="modificatLa" ColumnName="modificatLa" />
+                <ScalarProperty Name="inactiv" ColumnName="inactiv" />
+                <ScalarProperty Name="lockVersion" ColumnName="lockVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clientis">
+            <EntityTypeMapping TypeName="AmanetModel.Clienti">
+              <MappingFragment StoreEntitySet="Clienti">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nume" ColumnName="nume" />
+                <ScalarProperty Name="prenume" ColumnName="prenume" />
+                <ScalarProperty Name="domiciliul" ColumnName="domiciliul" />
+                <ScalarProperty Name="ciSerie" ColumnName="ciSerie" />
+                <ScalarProperty Name="ciNumar" ColumnName="ciNumar" />
+                <ScalarProperty Name="ciEliberatDe" ColumnName="ciEliberatDe" />
+                <ScalarProperty Name="ciEliberatLa" ColumnName="ciEliberatLa" />
+                <ScalarProperty Name="telefon" ColumnName="telefon" />
+                <ScalarProperty Name="creatLa" ColumnName="creatLa" />
+                <ScalarProperty Name="modificatLa" ColumnName="modificatLa" />
+                <ScalarProperty Name="inactiv" ColumnName="inactiv" />
+                <ScalarProperty Name="lockVersion" ColumnName="lockVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContracteProduses">
+            <EntityTypeMapping TypeName="AmanetModel.ContracteProduse">
+              <MappingFragment StoreEntitySet="ContracteProduse">
+                <ScalarProperty Name="lockVersion" ColumnName="lockVersion" />
+                <ScalarProperty Name="inactiv" ColumnName="inactiv" />
+                <ScalarProperty Name="modificatLa" ColumnName="modificatLa" />
+                <ScalarProperty Name="creatLa" ColumnName="creatLa" />
+                <ScalarProperty Name="gramajAur" ColumnName="gramajAur" />
+                <ScalarProperty Name="gramajPiesa" ColumnName="gramajPiesa" />
+                <ScalarProperty Name="descriere" ColumnName="descriere" />
+                <ScalarProperty Name="bucati" ColumnName="bucati" />
+                <ScalarProperty Name="idCalitate" ColumnName="idCalitate" />
+                <ScalarProperty Name="idProdus" ColumnName="idProdus" />
+                <ScalarProperty Name="idContract" ColumnName="idContract" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Produses">
+            <EntityTypeMapping TypeName="AmanetModel.Produse">
+              <MappingFragment StoreEntitySet="Produse">
+                <ScalarProperty Name="lockVersion" ColumnName="lockVersion" />
+                <ScalarProperty Name="inactiv" ColumnName="inactiv" />
+                <ScalarProperty Name="modificatLa" ColumnName="modificatLa" />
+                <ScalarProperty Name="creatLa" ColumnName="creatLa" />
+                <ScalarProperty Name="denumire" ColumnName="denumire" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContracteAntets">
+            <EntityTypeMapping TypeName="AmanetModel.ContracteAntet">
+              <MappingFragment StoreEntitySet="ContracteAntet">
+                <ScalarProperty Name="lockVersion" ColumnName="lockVersion" />
+                <ScalarProperty Name="inactiv" ColumnName="inactiv" />
+                <ScalarProperty Name="modificatLa" ColumnName="modificatLa" />
+                <ScalarProperty Name="creatLa" ColumnName="creatLa" />
+                <ScalarProperty Name="observatii" ColumnName="observatii" />
+                <ScalarProperty Name="stareContract" ColumnName="stareContract" />
+                <ScalarProperty Name="dataScadenta" ColumnName="dataScadenta" />
+                <ScalarProperty Name="nrZile" ColumnName="nrZile" />
+                <ScalarProperty Name="valoareDebit" ColumnName="valoareDebit" />
+                <ScalarProperty Name="valoareCreditZi" ColumnName="valoareCreditZi" />
+                <ScalarProperty Name="comisionProcZi" ColumnName="comisionProcZi" />
+                <ScalarProperty Name="valoareCredit" ColumnName="valoareCredit" />
+                <ScalarProperty Name="idClient" ColumnName="idClient" />
+                <ScalarProperty Name="dataContract" ColumnName="dataContract" />
+                <ScalarProperty Name="nrContract" ColumnName="nrContract" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lstPrintareContracts">
+            <EntityTypeMapping TypeName="AmanetModel.lstPrintareContract">
+              <MappingFragment StoreEntitySet="lstPrintareContract">
+                <ScalarProperty Name="DataScadenta" ColumnName="DataScadenta" />
+                <ScalarProperty Name="NrZileImprumut" ColumnName="NrZileImprumut" />
+                <ScalarProperty Name="ValoareDebit" ColumnName="ValoareDebit" />
+                <ScalarProperty Name="ValoareComisionZi" ColumnName="ValoareComisionZi" />
+                <ScalarProperty Name="ComisionProcZi" ColumnName="ComisionProcZi" />
+                <ScalarProperty Name="ValoareCredit" ColumnName="ValoareCredit" />
+                <ScalarProperty Name="Calitate" ColumnName="Calitate" />
+                <ScalarProperty Name="GramajAur" ColumnName="GramajAur" />
+                <ScalarProperty Name="GramajPiesa" ColumnName="GramajPiesa" />
+                <ScalarProperty Name="Descriere" ColumnName="Descriere" />
+                <ScalarProperty Name="Bucati" ColumnName="Bucati" />
+                <ScalarProperty Name="Denumire" ColumnName="Denumire" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="EliberatLa" ColumnName="EliberatLa" />
+                <ScalarProperty Name="EliberatDe" ColumnName="EliberatDe" />
+                <ScalarProperty Name="NumarCI" ColumnName="NumarCI" />
+                <ScalarProperty Name="SerieCI" ColumnName="SerieCI" />
+                <ScalarProperty Name="Domiciliul" ColumnName="Domiciliul" />
+                <ScalarProperty Name="NumePrenume" ColumnName="NumePrenume" />
+                <ScalarProperty Name="DataContract" ColumnName="DataContract" />
+                <ScalarProperty Name="NumarContract" ColumnName="NumarContract" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PROC_RptPrintareContract" FunctionName="AmanetModel.Store.PROC_RptPrintareContract" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

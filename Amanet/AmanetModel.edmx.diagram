@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0fd57a01ca0c4c1d9e4f7bf619d358a6" Name="Diagram1">
+        <EntityTypeShape EntityType="AmanetModel.Calitati" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AmanetModel.Clienti" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AmanetModel.ContracteProduse" Width="1.5" PointX="5.25" PointY="2.875" />
+        <EntityTypeShape EntityType="AmanetModel.Produse" Width="1.5" PointX="3" PointY="9.625" />
+        <AssociationConnector Association="AmanetModel.FK_ContracteProduse_Calitati" />
+        <AssociationConnector Association="AmanetModel.FK_ContracteProduse_Produse" />
+        <EntityTypeShape EntityType="AmanetModel.ContracteAntet" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="AmanetModel.lstPrintareContract" Width="1.5" PointX="7.375" PointY="0.75" />
+        <AssociationConnector Association="AmanetModel.FK_Contracte_Clienti" />
+        <AssociationConnector Association="AmanetModel.FK_ContracteProduse_ContracteAntet" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
